@@ -1,0 +1,6 @@
+{
+  "name": "Suresh Portfolio & AI CV Auditor",
+  "description": "Transform resumes into premium portfolios and automated ATS audits curated by expert recruiter bots representing Penta Naga Venkata Suresh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
