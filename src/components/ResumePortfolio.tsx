@@ -215,14 +215,25 @@ export default function ResumePortfolio({ isDarkMode, toggleView }: ResumePortfo
   return (
     <div className={`min-h-screen font-sans transition-colors duration-300 ${isDarkMode ? 'bg-zinc-950 text-zinc-100' : 'bg-slate-50 text-slate-900'}`}>
       
-      {/* Dynamic Animated Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+      {/* Dynamic Animated Hero Section       {/* Dynamic Animated Hero Section */}
+      <section className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32 bg-zinc-950 text-zinc-100">
+        
         {/* Abstract futuristic background decorations */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className={`absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full filter blur-[120px] opacity-20 animate-pulse ${isDarkMode ? 'bg-teal-500/30' : 'bg-teal-300/40'}`}></div>
-          <div className={`absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full filter blur-[120px] opacity-15 ${isDarkMode ? 'bg-teal-500/10' : 'bg-teal-300/15'}`}></div>
-          {/* Subtle grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+          {/* Neon Teal Glow Blob */}
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-teal-500/10 blur-[130px] animate-pulse-slow"></div>
+          {/* Neon Blue Glow Blob */}
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-[120px] animate-pulse-slow [animation-delay:4s]"></div>
+          
+          {/* Cyber Grid Overlay */}
+          <div className="absolute inset-0 bg-cyber-grid opacity-75"></div>
+          
+          {/* Cyber Dots Overlay */}
+          <div className="absolute inset-0 bg-cyber-dots opacity-40"></div>
+          
+          {/* Futuristic subtle glowing coordinate markers */}
+          <div className="absolute top-20 left-10 text-[8px] font-mono text-zinc-600 tracking-widest hidden md:block">SYS_STATUS: ACTIVE // COORD_X: 41.229 // COORD_Y: 77.013</div>
+          <div className="absolute bottom-20 right-10 text-[8px] font-mono text-zinc-600 tracking-widest hidden md:block">AI_NETWORK: ONLINE // LATENCY: 14MS</div>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -231,9 +242,7 @@ export default function ResumePortfolio({ isDarkMode, toggleView }: ResumePortfo
           <motion.div 
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            className={`flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 p-4 rounded-3xl border backdrop-blur-md ${
-              isDarkMode ? 'bg-zinc-900/40 border-zinc-900' : 'bg-slate-100/60 border-slate-200'
-            }`}
+            className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-12 p-4 rounded-2xl border backdrop-blur-xl bg-zinc-900/40 border-teal-500/15"
           >
             {/* Theme Info (Unified Single Color) */}
             <div className="flex items-center gap-3">
@@ -244,8 +253,8 @@ export default function ResumePortfolio({ isDarkMode, toggleView }: ResumePortfo
                 <span className="text-[10px] font-black uppercase text-zinc-500 font-mono tracking-widest block">
                   Aesthetic Theme
                 </span>
-                <span className="text-xs font-bold text-teal-500 font-mono">
-                  Minimalist Cyber Teal
+                <span className="text-xs font-bold text-teal-400 font-mono">
+                  Cyberpunk Neon Blue & Teal
                 </span>
               </div>
             </div>
@@ -257,25 +266,23 @@ export default function ResumePortfolio({ isDarkMode, toggleView }: ResumePortfo
                   AI ATS OPTIMIZER
                 </span>
                 <span className="text-[9px] text-zinc-500 block">
-                  Click to fix transcription discrepancies
+                  Click to resolve data schema anomalies
                 </span>
               </div>
               <button
                 type="button"
                 onClick={() => {
                   setIsAtsCorrected(!isAtsCorrected);
-                  setAvatarSuccess(isAtsCorrected ? 'ATS Mode deactivated' : '💎 Success: Relational database corrections applied!');
+                  setAvatarSuccess(isAtsCorrected ? 'ATS mode deactivated' : '💎 Success: Relational database corrections applied!');
                   setTimeout(() => setAvatarSuccess(''), 4000);
                 }}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-2xl border font-bold text-xs cursor-pointer transition-all ${
+                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl border font-bold text-xs cursor-pointer transition-all ${
                   isAtsCorrected 
-                    ? 'bg-teal-500/10 border-teal-500/40 text-teal-400 shadow-lg shadow-teal-900/10' 
-                    : isDarkMode 
-                      ? 'bg-zinc-900 border-zinc-805 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-850' 
-                      : 'bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    ? 'bg-teal-500/20 border-teal-400/50 text-teal-300 shadow-[0_0_15px_rgba(20,184,166,0.3)]' 
+                    : 'bg-zinc-900/80 border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-855'
                 }`}
               >
-                <div className={`w-2 h-2 rounded-full ${isAtsCorrected ? 'bg-teal-400 animate-pulse' : 'bg-zinc-650'}`}></div>
+                <div className={`w-2 h-2 rounded-full ${isAtsCorrected ? 'bg-teal-400 animate-pulse' : 'bg-zinc-600'}`}></div>
                 <span>{isAtsCorrected ? 'ATS Optimized: Active' : 'Enable ATS Corrections'}</span>
               </button>
             </div>
@@ -285,74 +292,87 @@ export default function ResumePortfolio({ isDarkMode, toggleView }: ResumePortfo
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex justify-center mb-6"
+            className="flex justify-center mb-8"
           >
-            <div className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide border transition-all ${
-              isDarkMode 
-                ? `bg-zinc-905/90 border-zinc-800 shadow-md ${getAccentClass('text')} shadow-black/20` 
-                : `bg-white/90 border-slate-200 shadow-sm ${getAccentClass('accentText')}`
-            }`}>
-              <Sparkles className={`w-3.5 h-3.5 animate-spin ${getAccentClass('text')}`} />
-              <span>GOOGLE DEVELOPER & AI CHASM BRIDGER</span>
+            <div className="flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider border bg-zinc-900/85 border-teal-500/20 text-teal-400 shadow-md shadow-black/20">
+              <Sparkles className="w-3.5 h-3.5 animate-spin text-teal-400" />
+              <span>DATA ANALYST & AI/ML PROTOCOL v2.0</span>
             </div>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* Hero Text */}
-            <div className="lg:col-span-8 space-y-6 text-center lg:text-left order-last lg:order-last">
-              <motion.h1 
+            {/* Column 1: Hero Text Content */}
+            <div className="lg:col-span-7 space-y-6 text-center lg:text-left order-last lg:order-last">
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight"
-                id="hero-name"
+                className="space-y-2"
               >
-                Hi! I'm Penta Naga Venkata <span className={`bg-gradient-to-r ${getAccentClass('gradient')} bg-clip-text text-transparent`}>Suresh</span>
-              </motion.h1>
+                <div className="text-[10px] font-mono font-bold tracking-widest text-teal-500 uppercase">
+                  [ IDENTITY VERIFICATION LOCKED ]
+                </div>
+                <h1 
+                  className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-sans text-white leading-tight"
+                  id="hero-name"
+                >
+                  Penta Naga Venkata <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(20,184,166,0.2)]">Suresh</span>
+                </h1>
+                <p className="text-xl sm:text-2xl font-bold font-mono tracking-wide text-cyan-400 flex items-center justify-center lg:justify-start gap-2">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                  Data Analyst & AI/ML Specialist
+                </p>
+              </motion.div>
 
               <motion.p 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className={`text-lg sm:text-xl font-medium tracking-wide ${isDarkMode ? 'text-zinc-300' : 'text-slate-600'}`}
-              >
-                Data Analyst & AI/ML Specialist
-              </motion.p>
-
-              <motion.p 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                className={`max-w-2xl text-base sm:text-md leading-relaxed h-[72px] sm:h-[64px] flex items-center ${isDarkMode ? 'text-zinc-300' : 'text-slate-600'}`}
+                className="text-zinc-300 leading-relaxed text-base max-w-2xl"
               >
                 {recruiterFocus === 'analytics' && "B.Tech candidate in computer science focusing on database optimization, clean SQL structures, and business latency reduction. Skilled in translating academic datasets into robust operational insights."}
                 {recruiterFocus === 'ai' && "B.Tech (CSE - AI Major) student focused on machine learning algorithms, computer vision modeling, and real-time posture joint flexion mathematics. Experienced in Python data pipelines and AI model structures."}
                 {recruiterFocus === 'all' && "B.Tech (CSE - Artificial Intelligence) candidate specializing in bridging raw database pipelines with statistical predictive products. Expert in Python, SQL, and embedded systems modeling."}
               </motion.p>
 
-              {/* Recruiter Perspective Customized Control Bar */}
+              {/* Core Skill Badges */}
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+                className="flex flex-wrap gap-2.5 justify-center lg:justify-start"
+              >
+                {['Python', 'SQL', 'Data Analytics', 'Machine Learning', 'AI'].map((sk) => (
+                  <span 
+                    key={sk}
+                    className="px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold bg-zinc-900/60 border border-teal-500/20 text-teal-300 hover:border-cyan-400 hover:text-cyan-200 transition-colors"
+                  >
+                    ⚡ {sk}
+                  </span>
+                ))}
+              </motion.div>
+
+              {/* Recruiter Focus Selector */}
               <motion.div 
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.35 }}
-                className={`p-1.5 rounded-2xl border flex flex-col md:flex-row items-center gap-2 ${
-                  isDarkMode ? 'bg-zinc-900/60 border-zinc-800' : 'bg-slate-100 border-slate-200'
-                }`}
+                transition={{ delay: 0.3 }}
+                className="p-2 rounded-2xl border bg-zinc-900/60 border-zinc-800/80 flex flex-col md:flex-row items-center gap-3"
               >
-                <div className="flex items-center gap-1.5 ml-2 mr-1">
-                  <Sparkles className={`w-3.5 h-3.5 shrink-0 ${getAccentClass('text')}`} />
-                  <span className={`text-[10px] font-black font-mono tracking-widest uppercase shrink-0 ${getAccentClass('text')}`}>
-                    RECRUITER TARGET FOCUS:
+                <div className="flex items-center gap-2 ml-2 mr-1">
+                  <Sparkles className="w-4 h-4 text-teal-400 shrink-0" />
+                  <span className="text-[10px] font-black font-mono tracking-widest uppercase shrink-0 text-zinc-400">
+                    TARGET FOCUS CODES:
                   </span>
                 </div>
-                <div className="flex w-full gap-1">
+                <div className="flex w-full gap-2">
                   <button
                     onClick={() => setRecruiterFocus('all')}
-                    className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition-all duration-150 cursor-pointer ${
+                    className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all duration-150 cursor-pointer ${
                       recruiterFocus === 'all'
-                        ? `${getAccentClass('bg')} ${getAccentClass('text')} border ${getAccentClass('border')} shadow-sm`
-                        : isDarkMode ? 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
+                        ? 'bg-gradient-to-r from-teal-500/20 to-cyan-500/20 border border-teal-500/40 text-teal-300 shadow-md shadow-teal-500/5'
+                        : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40'
                     }`}
                   >
                     All-Rounder
@@ -360,68 +380,105 @@ export default function ResumePortfolio({ isDarkMode, toggleView }: ResumePortfo
                   <button
                     onClick={() => {
                       setRecruiterFocus('analytics');
-                      setActiveSkillTab(0); // auto switch tab
+                      setActiveSkillTab(0);
                     }}
-                    className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition-all duration-150 cursor-pointer ${
+                    className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all duration-150 cursor-pointer ${
                       recruiterFocus === 'analytics'
-                        ? `${getAccentClass('bg')} ${getAccentClass('text')} border ${getAccentClass('border')} shadow-sm`
-                        : isDarkMode ? 'text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/40' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
+                        ? 'bg-gradient-to-r from-teal-500/20 to-cyan-500/20 border border-teal-500/40 text-teal-300 shadow-md shadow-teal-500/5'
+                        : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40'
                     }`}
                   >
-                    Data Analyst Focus
+                    Data Analyst
                   </button>
                   <button
                     onClick={() => {
                       setRecruiterFocus('ai');
-                      setActiveSkillTab(1); // auto switch tab
+                      setActiveSkillTab(1);
                     }}
-                    className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition-all duration-150 cursor-pointer ${
+                    className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all duration-150 cursor-pointer ${
                       recruiterFocus === 'ai'
-                        ? `${getAccentClass('bg')} ${getAccentClass('text')} border ${getAccentClass('border')} shadow-sm`
-                        : isDarkMode ? 'text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/40' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
+                        ? 'bg-gradient-to-r from-teal-500/20 to-cyan-500/20 border border-teal-500/40 text-teal-300 shadow-md shadow-teal-500/5'
+                        : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40'
                     }`}
                   >
-                    AI/ML Specialist Focus
+                    AI/ML Focus
                   </button>
                 </div>
               </motion.div>
 
-              {/* Key Brand Strength Tag */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4 }}
-                className={`p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center gap-3 ${
-                  isDarkMode ? 'bg-zinc-900/50 border-zinc-805' : 'bg-white border-slate-100 shadow-sm'
-                }`}
+              {/* Dynamic Stats Widget Dashboard (Linked to Recruiter Focus) */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                className="grid grid-cols-3 gap-4 p-4 rounded-2xl border bg-zinc-900/30 border-teal-500/10"
               >
-                <div className={`flex items-center justify-center w-10 h-10 rounded-lg shrink-0 ${getAccentClass('bg')} ${getAccentClass('text')}`}>
-                  <Award className="w-5 h-5" />
-                </div>
-                <div className="text-left">
-                  <h4 className={`text-xs font-black uppercase tracking-wider ${getAccentClass('text')}`}>Strongest Accolade</h4>
-                  <p className={`text-sm ${isDarkMode ? 'text-zinc-200 font-medium' : 'text-slate-800 font-semibold'}`}>
-                    Abhiyaan 2nd Prize Winner & Multiplet Certified Google & FMML AI Alumni
-                  </p>
-                </div>
+                {recruiterFocus === 'all' && (
+                  <>
+                    <div className="text-center md:text-left">
+                      <div className="text-lg md:text-xl font-bold font-mono text-teal-400">12+</div>
+                      <div className="text-[10px] text-zinc-400 uppercase tracking-wider font-semibold">AI Models Trained</div>
+                    </div>
+                    <div className="text-center md:text-left border-l border-zinc-800 pl-4">
+                      <div className="text-lg md:text-xl font-bold font-mono text-cyan-400">1.2k+</div>
+                      <div className="text-[10px] text-zinc-400 uppercase tracking-wider font-semibold">SQL Queries Run</div>
+                    </div>
+                    <div className="text-center md:text-left border-l border-zinc-800 pl-4">
+                      <div className="text-lg md:text-xl font-bold font-mono text-blue-400">5+</div>
+                      <div className="text-[10px] text-zinc-400 uppercase tracking-wider font-semibold">AI Credentials</div>
+                    </div>
+                  </>
+                )}
+                {recruiterFocus === 'analytics' && (
+                  <>
+                    <div className="text-center md:text-left">
+                      <div className="text-lg md:text-xl font-bold font-mono text-teal-400">4.2x</div>
+                      <div className="text-[10px] text-zinc-400 uppercase tracking-wider font-semibold">Indexing Latency</div>
+                    </div>
+                    <div className="text-center md:text-left border-l border-zinc-800 pl-4">
+                      <div className="text-lg md:text-xl font-bold font-mono text-cyan-400">99.8%</div>
+                      <div className="text-[10px] text-zinc-400 uppercase tracking-wider font-semibold">Data Accuracy</div>
+                    </div>
+                    <div className="text-center md:text-left border-l border-zinc-800 pl-4">
+                      <div className="text-lg md:text-xl font-bold font-mono text-blue-400">3NF</div>
+                      <div className="text-[10px] text-zinc-400 uppercase tracking-wider font-semibold">Normal DB Schema</div>
+                    </div>
+                  </>
+                )}
+                {recruiterFocus === 'ai' && (
+                  <>
+                    <div className="text-center md:text-left">
+                      <div className="text-lg md:text-xl font-bold font-mono text-teal-400">98.2%</div>
+                      <div className="text-[10px] text-zinc-400 uppercase tracking-wider font-semibold">Pose Precision</div>
+                    </div>
+                    <div className="text-center md:text-left border-l border-zinc-800 pl-4">
+                      <div className="text-lg md:text-xl font-bold font-mono text-cyan-400">14ms</div>
+                      <div className="text-[10px] text-zinc-400 uppercase tracking-wider font-semibold">Pose Inference</div>
+                    </div>
+                    <div className="text-center md:text-left border-l border-zinc-800 pl-4">
+                      <div className="text-lg md:text-xl font-bold font-mono text-blue-400">+85%</div>
+                      <div className="text-[10px] text-zinc-400 uppercase tracking-wider font-semibold">Finder Speed</div>
+                    </div>
+                  </>
+                )}
               </motion.div>
 
               {/* CTAs */}
               <motion.div 
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.4 }}
                 className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2"
               >
                 <button
                   onClick={handleDownloadSim}
                   id="btn-download-resume"
-                  className={`flex items-center gap-2 px-6 py-3.5 rounded-xl font-black text-sm bg-gradient-to-r ${getAccentClass('gradient')} text-zinc-950 cursor-pointer hover:shadow-lg active:scale-98 transition-all`}
+                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl font-black text-sm bg-gradient-to-r from-teal-400 to-cyan-400 text-zinc-950 cursor-pointer hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] active:scale-98 transition-all"
                 >
                   {simulatedDownload ? (
                     <>
                       <div className="w-4 h-4 border-2 border-zinc-950 border-t-transparent rounded-full animate-spin"></div>
-                      <span>Preparing Resume...</span>
+                      <span>Initializing Dossier...</span>
                     </>
                   ) : (
                     <>
@@ -434,249 +491,101 @@ export default function ResumePortfolio({ isDarkMode, toggleView }: ResumePortfo
                 <a
                   href="#contact"
                   id="lnk-hero-contact"
-                  className={`flex items-center gap-2 px-6 py-3.5 rounded-xl font-black text-sm border cursor-pointer active:scale-98 transition-all ${
-                    isDarkMode 
-                      ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-800 text-zinc-100' 
-                      : 'bg-white hover:bg-slate-100 border-slate-200 text-slate-700'
-                  }`}
+                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl font-black text-sm border cursor-pointer active:scale-98 transition-all bg-zinc-900 hover:bg-zinc-800 border-zinc-800 text-zinc-100"
                 >
-                  <Mail className="w-4 h-4" />
-                  <span>Contact Info</span>
+                  <Mail className="w-4 h-4 text-teal-400" />
+                  <span>Contact System</span>
                 </a>
 
                 {/* Audit Hub CTA Button to swap modes */}
                 <button
                   onClick={toggleView}
                   id="btn-toggle-hud"
-                  className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-teal-400 hover:text-teal-300 bg-teal-500/10 border border-teal-500/20"
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-teal-400 hover:text-teal-300 bg-teal-500/10 border border-teal-500/20 cursor-pointer"
                 >
-                  <Shield className="w-3.5 h-3.5" />
-                  <span>Inspect Recruiter Audit Hub</span>
+                  <Shield className="w-3.5 h-3.5 animate-pulse" />
+                  <span>Inspect Audit Hub</span>
                 </button>
               </motion.div>
             </div>
 
-            {/* Profile Illustration Card / Interactive Widget */}
+            {/* Column 2: Avatar & Dossier Config Panel */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3, type: 'spring' }}
-              className="lg:col-span-4 flex justify-center order-first lg:order-first"
+              transition={{ delay: 0.2, type: 'spring' }}
+              className="lg:col-span-5 flex flex-col items-center justify-center space-y-6 order-first lg:order-first"
             >
-              <div className={`relative p-6 w-full max-w-[320px] rounded-3xl border transition-all ${
-                isDarkMode 
-                  ? 'bg-zinc-900/90 border-zinc-800 shadow-2xl shadow-black/80' 
-                  : 'bg-white border-slate-200/80 shadow-xl'
-              }`}>
-                {/* Glowing ring */}
-                <div className={`absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-teal-400 to-transparent`}></div>
+              {/* Profile Illustration Card with Cyber Glow Rings */}
+              <div className="relative p-6 w-full max-w-[340px] rounded-3xl border bg-zinc-900/80 border-zinc-800 shadow-2xl shadow-black/80 backdrop-blur-xl">
+                
+                {/* Horizontal scanning light reflection at the top */}
+                <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
 
                 <div className="flex flex-col items-center text-center">
-                  <div className="relative mb-3 group">
-                    <div className={`absolute inset-0 rounded-full bg-teal-500/10 blur-md group-hover:scale-110 transition-transform`}></div>
-                    <img 
-                      src={avatar}
-                      alt={personalInfo.name}
-                      referrerPolicy="no-referrer"
-                      className={`relative w-28 h-28 rounded-full border-4 ${getAccentClass('border')} object-cover bg-zinc-900`}
-                    />
-                    <div className={`absolute bottom-1 right-1 w-6 h-6 rounded-full border-2 border-zinc-900 flex items-center justify-center bg-teal-500 text-zinc-950`}>
-                      <CheckCircle2 className="w-3.5 h-3.5" />
+                  
+                  {/* Photo with double animated neon ring */}
+                  <div className="relative mb-5 mt-2">
+                    {/* Rotating Dashed Outer Ring */}
+                    <div className="absolute -inset-3 rounded-full border border-dashed border-teal-500/30 animate-[spin_30s_linear_infinite]"></div>
+                    {/* Reverse Rotating Solid Outer Ring */}
+                    <div className="absolute -inset-1.5 rounded-full border border-cyan-500/20 animate-[spin_15s_linear_infinite_reverse]"></div>
+                    {/* Cyber Glow backdrop */}
+                    <div className="absolute inset-0 rounded-full bg-teal-500/10 blur-md"></div>
+                    
+                    {/* Profile image with verified indicator */}
+                    <div className="relative w-32 h-32 rounded-full p-1 bg-gradient-to-tr from-teal-500 via-cyan-400 to-blue-500">
+                      <div className="w-full h-full rounded-full overflow-hidden border-2 border-zinc-900 bg-zinc-950 relative group">
+                        <img 
+                          src={avatar}
+                          alt={personalInfo.name}
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        {/* Scanning beam line inside image */}
+                        <div className="absolute inset-x-0 h-0.5 bg-cyan-400/60 shadow-[0_0_8px_#22d3ee] animate-scan pointer-events-none"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Absolute system verified indicator */}
+                    <div className="absolute bottom-1 right-1 w-7 h-7 rounded-full border-2 border-zinc-900 bg-gradient-to-r from-teal-500 to-cyan-400 text-zinc-950 flex items-center justify-center shadow-lg shadow-teal-500/20">
+                      <CheckCircle2 className="w-4 h-4" />
                     </div>
                   </div>
 
-                  {/* Immediate Action feedback banner */}
-                  <AnimatePresence>
-                    {avatarSuccess && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="mb-3 px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-[10px] text-emerald-400 font-bold"
-                      >
-                        {avatarSuccess}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  {/* Image Edit Trigger */}
-                  <div className="mb-4">
-                    <button
-                      onClick={() => setShowImageSelector(!showImageSelector)}
-                      id="btn-edit-image"
-                      className={`px-3 py-1 rounded-full text-[11px] font-bold ${getAccentClass('bg')} hover:bg-teal-500/25 ${getAccentClass('text')} border ${getAccentClass('border')} flex items-center gap-1 cursor-pointer transition-all`}
-                    >
-                      <Image className="w-3.5 h-3.5" />
-                      <span>Configure Avatar Picture</span>
-                    </button>
+                  {/* Name and Location tags */}
+                  <div className="space-y-1">
+                    <h3 className="font-extrabold text-xl text-white tracking-tight">{personalInfo.name}</h3>
+                    <p className="text-xs text-teal-400 font-mono font-semibold tracking-wider uppercase">B.Tech Graduate 2027</p>
                   </div>
 
-                  {/* Image Selector Panel with smart live preview */}
-                  <AnimatePresence>
-                    {showImageSelector && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className={`w-full p-4 mb-4 rounded-2xl border text-left space-y-4 text-xs overflow-hidden ${
-                          isDarkMode ? 'bg-zinc-950 border-zinc-800' : 'bg-slate-50 border-slate-200'
-                        }`}
-                      >
-                        <div>
-                          <span className={`font-extrabold uppercase tracking-wider block mb-2 ${getAccentClass('text')}`}>Cool Presets</span>
-                          <div className="grid grid-cols-3 gap-2">
-                            <button
-                              onClick={() => {
-                                const p = "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=256&h=256&q=80";
-                                setAvatar(p);
-                                localStorage.setItem('user_avatar', p);
-                                setAvatarSuccess("Loaded AI Specialist Preset!");
-                                setTimeout(() => setAvatarSuccess(''), 3000);
-                              }}
-                              className="p-1 rounded-lg hover:border-teal-400 border border-transparent transition-all overflow-hidden bg-zinc-900/40"
-                            >
-                              <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=64&h=64&q=80" className="w-full h-10 object-cover rounded animate-pulse" referrerPolicy="no-referrer" />
-                              <span className="text-[9px] block text-center mt-1 text-zinc-500">AI Core</span>
-                            </button>
-                            <button
-                              onClick={() => {
-                                const p = "https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?auto=format&fit=crop&w=256&h=256&q=80";
-                                setAvatar(p);
-                                localStorage.setItem('user_avatar', p);
-                                setAvatarSuccess("Loaded Software Developer Preset!");
-                                setTimeout(() => setAvatarSuccess(''), 3000);
-                              }}
-                              className="p-1 rounded-lg hover:border-teal-400 border border-transparent transition-all overflow-hidden bg-zinc-900/40"
-                            >
-                              <img src="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?auto=format&fit=crop&w=64&h=64&q=80" className="w-full h-10 object-cover rounded animate-pulse" referrerPolicy="no-referrer" />
-                              <span className="text-[9px] block text-center mt-1 text-zinc-500">Coder</span>
-                            </button>
-                            <button
-                              onClick={() => {
-                                // Create elegant vector mockup with canvas initials
-                                const baseInit = "https://api.dicebear.com/7.x/initials/svg?seed=PNS";
-                                setAvatar(baseInit);
-                                localStorage.setItem('user_avatar', baseInit);
-                                setAvatarSuccess("Loaded Minimalist Initials!");
-                                setTimeout(() => setAvatarSuccess(''), 3000);
-                              }}
-                              className="p-1 rounded-lg hover:border-teal-400 border border-transparent transition-all overflow-hidden bg-zinc-900/40 flex flex-col items-center justify-center h-[58px]"
-                            >
-                              <div className="w-full h-10 bg-gradient-to-tr from-zinc-800 to-zinc-700 rounded flex items-center justify-center font-black text-xs text-teal-400">
-                                P.S.
-                              </div>
-                              <span className="text-[9px] block text-center mt-1 text-zinc-500">Monogram</span>
-                            </button>
-                          </div>
-                        </div>
-
-                        {/* Local File upload */}
-                        <div className="space-y-1.5">
-                          <span className={`font-extrabold uppercase tracking-wider block ${getAccentClass('text')}`}>Upload Image File</span>
-                          <label className={`flex items-center gap-2 p-2.5 rounded-xl border border-dashed text-zinc-400 hover:text-teal-400 hover:border-teal-400 cursor-pointer transition-all justify-center ${
-                            isDarkMode ? 'bg-zinc-900/40 border-zinc-800' : 'bg-white border-slate-300'
-                          }`}>
-                            <Upload className="w-3.5 h-3.5" />
-                            <span>Choose local file</span>
-                            <input 
-                              type="file" 
-                              accept="image/*" 
-                              onChange={handleFileUpload} 
-                              className="hidden" 
-                            />
-                          </label>
-                          {uploadError && <p className="text-[10px] text-red-500 font-bold">{uploadError}</p>}
-                        </div>
-
-                        {/* Custom URL pasting with LIVE PREVIEW */}
-                        <div className="space-y-1.5">
-                          <span className={`font-extrabold uppercase tracking-wider block ${getAccentClass('text')}`}>Paste Live Url</span>
-                          <div className="flex gap-1.5">
-                            <input
-                              type="text"
-                              placeholder="Paste https://.../photo.png"
-                              value={customUrl}
-                              onChange={(e) => {
-                                setCustomUrl(e.target.value);
-                                setUploadError('');
-                              }}
-                              onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                  e.preventDefault();
-                                  handleApplyUrl();
-                                }
-                              }}
-                              className={`flex-1 p-2 rounded-xl border outline-none text-xs ${
-                                isDarkMode ? 'bg-zinc-900 border-zinc-805 text-zinc-200' : 'bg-white border-slate-200 text-slate-800'
-                              } ${getAccentClass('focusRing')}`}
-                            />
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                handleApplyUrl();
-                              }}
-                              className={`px-3 py-2 ${isDarkMode ? 'bg-teal-500 text-zinc-950 hover:bg-teal-400' : 'bg-teal-650 text-white hover:bg-teal-600'} rounded-xl font-bold active:scale-95 transition-all cursor-pointer`}
-                            >
-                              Apply
-                            </button>
-                          </div>
-                          
-                          {/* Real-time preview of the URL characters to verify if valid */}
-                          {customUrl.trim().startsWith('http') && (
-                            <div className="p-1.5 rounded-xl bg-zinc-950/60 border border-zinc-850 flex items-center gap-2 mt-1">
-                              <div className="w-6 h-6 rounded overflow-hidden shrink-0 border border-zinc-800 bg-zinc-900">
-                                <img src={customUrl.trim()} className="w-full h-full object-cover" onError={() => setUploadError("Invalid image path or CORS block")} referrerPolicy="no-referrer" />
-                              </div>
-                              <span className="text-[9px] text-zinc-500 truncate block flex-1">Image found! Ready to Apply</span>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Reset to Default */}
-                        <button
-                          type="button"
-                          onClick={handleResetAvatar}
-                          className="w-full py-2 border border-zinc-850 hover:border-red-500/20 hover:bg-red-500/10 text-zinc-400 hover:text-red-400 rounded-xl font-bold transition-all cursor-pointer flex items-center justify-center gap-1 text-[10px]"
-                        >
-                          <RefreshCw className="w-3 h-3 animate-spin duration-1000" />
-                          <span>Reset to Default Photo</span>
-                        </button>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  <h3 className="font-extrabold text-lg">{personalInfo.name}</h3>
-                  <p className={`text-xs ${getAccentClass('text')} font-bold tracking-wider uppercase mt-1`}>B.Tech Graduate 2027</p>
-
-                  <div className={`w-full h-px my-4 ${isDarkMode ? 'bg-zinc-800' : 'bg-slate-100'}`}></div>
+                  <div className="w-full h-px my-4 bg-zinc-800/80"></div>
 
                   {/* Profile quick metadata */}
-                  <div className="w-full space-y-2.5 text-xs text-left">
-                    <div className="flex items-center gap-2 text-zinc-400">
-                      <MapPin className={`w-3.5 h-3.5 shrink-0 ${getAccentClass('text')}`} />
-                      <span className={isDarkMode ? 'text-zinc-300' : 'text-slate-600'}>Andhra Pradesh, India</span>
+                  <div className="w-full space-y-2.5 text-xs text-left font-mono">
+                    <div className="flex items-center gap-2.5 text-zinc-400">
+                      <MapPin className="w-3.5 h-3.5 shrink-0 text-teal-400" />
+                      <span className="text-zinc-300">Andhra Pradesh, India</span>
                     </div>
 
-                    <div className="flex items-center gap-2 text-zinc-400">
+                    <div className="flex items-center gap-2.5 text-zinc-400">
                       <GraduationCap className="w-3.5 h-3.5 shrink-0 text-teal-400" />
-                      <span className={isDarkMode ? 'text-zinc-300' : 'text-slate-600'}>KIET CSE - AI Major</span>
+                      <span className="text-zinc-300">KIET CSE - AI Major</span>
                     </div>
 
-                    <div className="flex items-center gap-2 text-zinc-400">
-                      <BookOpen className={`w-3.5 h-3.5 shrink-0 ${getAccentClass('text')}`} />
-                      <span className={isDarkMode ? 'text-zinc-300' : 'text-slate-600'}>5+ Technical Credentials</span>
+                    <div className="flex items-center gap-2.5 text-zinc-400">
+                      <BookOpen className="w-3.5 h-3.5 shrink-0 text-teal-400" />
+                      <span className="text-zinc-300">5+ Technical Credentials</span>
                     </div>
 
                     {personalInfo.github && (
-                      <div className="flex items-center gap-2 text-zinc-400">
-                        <Github className={`w-3.5 h-3.5 shrink-0 ${getAccentClass('text')}`} />
+                      <div className="flex items-center gap-2.5 text-zinc-400">
+                        <Github className="w-3.5 h-3.5 shrink-0 text-teal-400" />
                         <a 
                           href={`https://${personalInfo.github}`} 
                           target="_blank" 
                           rel="noreferrer" 
-                          className={`hover:underline ${isDarkMode ? 'text-zinc-300' : 'text-slate-600'}`}
+                          className="hover:text-teal-300 hover:underline text-zinc-300"
                         >
                           {personalInfo.github}
                         </a>
@@ -684,28 +593,173 @@ export default function ResumePortfolio({ isDarkMode, toggleView }: ResumePortfo
                     )}
 
                     {personalInfo.phone && (
-                      <div className="flex items-center gap-2 text-zinc-400">
-                        <Phone className={`w-3.5 h-3.5 shrink-0 ${getAccentClass('text')}`} />
-                        <span className={isDarkMode ? 'text-zinc-300' : 'text-slate-600'}>{personalInfo.phone}</span>
+                      <div className="flex items-center gap-2.5 text-zinc-400">
+                        <Phone className="w-3.5 h-3.5 shrink-0 text-teal-400" />
+                        <span className="text-zinc-300">{personalInfo.phone}</span>
                       </div>
                     )}
                   </div>
 
                   {/* Tiny Quick Contact Link */}
-                  <div className="mt-5 w-full">
+                  <div className="mt-4 w-full">
                     <a
                       href={`https://${personalInfo.linkedin}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-bold bg-teal-500/10 hover:bg-teal-500/25 text-teal-400 transition-colors"
+                      className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-bold bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 border border-teal-500/10 transition-colors"
                     >
-                      <Linkedin className="w-3.5 h-3.5" />
+                      <Linkedin className="w-3.5 h-3.5 text-teal-400" />
                       <span>linkedin.com/suresh</span>
-                      <ExternalLink className="w-3 h-3" />
+                      <ExternalLink className="w-3.5 h-3.5 opacity-60" />
                     </a>
                   </div>
+
+                  {/* Image Edit Trigger */}
+                  <div className="mt-3">
+                    <button
+                      onClick={() => setShowImageSelector(!showImageSelector)}
+                      id="btn-edit-image"
+                      className="px-3 py-1 rounded-full text-[10px] font-bold bg-zinc-900 border border-zinc-800 hover:border-teal-500/30 text-zinc-400 hover:text-teal-300 flex items-center gap-1 cursor-pointer transition-all"
+                    >
+                      <Image className="w-3.5 h-3.5 text-teal-400" />
+                      <span>{showImageSelector ? "Close Settings" : "Configure Avatar"}</span>
+                    </button>
+                  </div>
+
                 </div>
               </div>
+
+              {/* Dossier Configurator Terminal (Shown underneath Avatar only when clicked) */}
+              <AnimatePresence>
+                {showImageSelector && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0, y: -10 }}
+                    animate={{ opacity: 1, height: 'auto', y: 0 }}
+                    exit={{ opacity: 0, height: 0, y: -10 }}
+                    transition={{ duration: 0.25 }}
+                    className="w-full max-w-[340px] p-4 rounded-2xl border text-left space-y-4 text-xs overflow-hidden bg-zinc-900/90 border-zinc-800"
+                  >
+                    <div>
+                      <span className="font-extrabold uppercase tracking-wider block mb-2 text-teal-400 font-mono">Cool Presets</span>
+                      <div className="grid grid-cols-3 gap-2">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const p = "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=256&h=256&q=80";
+                            setAvatar(p);
+                            localStorage.setItem('user_avatar', p);
+                            setAvatarSuccess("Loaded AI Specialist Preset!");
+                            setTimeout(() => setAvatarSuccess(''), 3000);
+                          }}
+                          className="p-1 rounded-lg hover:border-teal-400 border border-zinc-800 transition-all overflow-hidden bg-zinc-950 cursor-pointer"
+                        >
+                          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=64&h=64&q=80" className="w-full h-10 object-cover rounded" referrerPolicy="no-referrer" />
+                          <span className="text-[9px] block text-center mt-1 text-zinc-500 font-mono">AI Core</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const p = "https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?auto=format&fit=crop&w=256&h=256&q=80";
+                            setAvatar(p);
+                            localStorage.setItem('user_avatar', p);
+                            setAvatarSuccess("Loaded Software Developer Preset!");
+                            setTimeout(() => setAvatarSuccess(''), 3000);
+                          }}
+                          className="p-1 rounded-lg hover:border-teal-400 border border-zinc-800 transition-all overflow-hidden bg-zinc-955 cursor-pointer"
+                        >
+                          <img src="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?auto=format&fit=crop&w=64&h=64&q=80" className="w-full h-10 object-cover rounded" referrerPolicy="no-referrer" />
+                          <span className="text-[9px] block text-center mt-1 text-zinc-500 font-mono">Coder</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const baseInit = "https://api.dicebear.com/7.x/initials/svg?seed=PNS";
+                            setAvatar(baseInit);
+                            localStorage.setItem('user_avatar', baseInit);
+                            setAvatarSuccess("Loaded Minimalist Initials!");
+                            setTimeout(() => setAvatarSuccess(''), 3000);
+                          }}
+                          className="p-1 rounded-lg hover:border-teal-400 border border-zinc-800 transition-all overflow-hidden bg-zinc-950 flex flex-col items-center justify-center h-[58px] cursor-pointer"
+                        >
+                          <div className="w-full h-10 bg-gradient-to-tr from-zinc-850 to-zinc-800 rounded flex items-center justify-center font-black text-xs text-teal-400">
+                            P.S.
+                          </div>
+                          <span className="text-[9px] block text-center mt-1 text-zinc-500 font-mono">Monogram</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Local File upload */}
+                    <div className="space-y-1.5">
+                      <span className="font-extrabold uppercase tracking-wider block text-teal-400 font-mono">Upload Image File</span>
+                      <label className="flex items-center gap-2 p-2.5 rounded-xl border border-dashed text-zinc-400 hover:text-teal-400 hover:border-teal-400 cursor-pointer transition-all justify-center bg-zinc-955 border-zinc-800">
+                        <Upload className="w-3.5 h-3.5 text-teal-400" />
+                        <span>Choose local file</span>
+                        <input 
+                          type="file" 
+                          accept="image/*" 
+                          onChange={handleFileUpload} 
+                          className="hidden" 
+                        />
+                      </label>
+                      {uploadError && <p className="text-[10px] text-red-500 font-bold">{uploadError}</p>}
+                    </div>
+
+                    {/* Custom URL pasting with LIVE PREVIEW */}
+                    <div className="space-y-1.5">
+                      <span className="font-extrabold uppercase tracking-wider block text-teal-400 font-mono">Paste Live Url</span>
+                      <div className="flex gap-1.5">
+                        <input
+                          type="text"
+                          placeholder="Paste https://.../photo.png"
+                          value={customUrl}
+                          onChange={(e) => {
+                            setCustomUrl(e.target.value);
+                            setUploadError('');
+                          }}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                              e.preventDefault();
+                              handleApplyUrl();
+                            }
+                          }}
+                          className="flex-1 p-2 rounded-xl border outline-none text-xs bg-zinc-950 border-zinc-800 text-zinc-200 focus:border-teal-400"
+                        />
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleApplyUrl();
+                          }}
+                          className="px-3 py-2 bg-teal-500 text-zinc-950 hover:bg-teal-400 rounded-xl font-bold active:scale-95 transition-all cursor-pointer"
+                        >
+                          Apply
+                        </button>
+                      </div>
+                      
+                      {customUrl.trim().startsWith('http') && (
+                        <div className="p-1.5 rounded-xl bg-zinc-950/60 border border-zinc-800 flex items-center gap-2 mt-1">
+                          <div className="w-6 h-6 rounded overflow-hidden shrink-0 border border-zinc-800 bg-zinc-900">
+                            <img src={customUrl.trim()} className="w-full h-full object-cover" onError={() => setUploadError("Invalid image path or CORS block")} referrerPolicy="no-referrer" />
+                          </div>
+                          <span className="text-[9px] text-zinc-500 truncate block flex-1">Image found! Ready to Apply</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Reset to Default */}
+                    <button
+                      type="button"
+                      onClick={handleResetAvatar}
+                      className="w-full py-2 border border-zinc-800 hover:border-red-500/20 hover:bg-red-500/10 text-zinc-400 hover:text-red-400 rounded-xl font-bold transition-all cursor-pointer flex items-center justify-center gap-1 text-[10px]"
+                    >
+                      <RefreshCw className="w-3 h-3 animate-spin duration-3000 text-red-400" />
+                      <span>Reset to Default Photo</span>
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
             </motion.div>
 
           </div>
